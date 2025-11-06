@@ -54,9 +54,14 @@ stages:
               buildType: 'current'
               artifactName: 'manifests'
               targetPath: '$(Pipeline.Workspace)/manifests'
+              
           - task: KubernetesManifest@1
             inputs:
               action: 'createSecret'
+              connectionType: 'azureResourceManager'
+              azureSubscriptionConnection: 'Azure subscription 1(229b8d6e-0cf9-4885-8a5c-d88fb42085f9)'
+              azureResourceGroup: 'bookingAKS_group'
+              kubernetesCluster: 'bookingAKScluster'
               namespace: 'default'
               secretType: 'dockerRegistry'
               secretName: '$(acrsecret)'
