@@ -37,7 +37,7 @@ stages:
   dependsOn: Build
   variables:
     acrsecret: bookcontainerauth
-    acrdevurl: 'bookcontainer.azurecr.io'
+    acrdevurl: 'bookcontainers.azurecr.io'
     replicaNo: 3
   jobs:
   - deployment: Deploy
