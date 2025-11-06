@@ -54,14 +54,14 @@ stages:
               buildType: 'current'
               artifactName: 'manifests'
               targetPath: '$(Pipeline.Workspace)/manifests'
-          - task: KubernetesManifest@0
+          - task: KubernetesManifest@1
             inputs:
               action: 'createSecret'
               namespace: 'default'
               secretType: 'dockerRegistry'
               secretName: '$(acrsecret)'
               dockerRegistryEndpoint: 'bookcontainer'
-          - task: replacetokens@3
+          - task: replacetokens@6
             displayName: Replace Tokens
             inputs:
               rootDirectory: '$(Pipeline.Workspace)/manifests/'
@@ -75,7 +75,7 @@ stages:
               useLegacyPattern: false
               enableTransforms: false
               enableTelemetry: true
-          - task: KubernetesManifest@0
+          - task: KubernetesManifest@1
             inputs:
               action: 'deploy'
               namespace: 'default'
