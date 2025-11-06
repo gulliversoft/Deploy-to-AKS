@@ -14,6 +14,6 @@ spec:
     spec:
       containers:
         - name: sampleapp 
-          image: bookcontainer.azurecr.io/sampleapp
+          image: bookcontainers.azurecr.io/sampleapp
           ports:
           - containerPort: 80
